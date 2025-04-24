@@ -323,3 +323,117 @@ To follow the logs of an agent, use the following command:
 ```sh
 surfkit logs agent my_agent --follow
 ```
+
+## AI in Data Science for Educational Presentations
+
+This section demonstrates how to use the `surfkit` toolkit to create AI agents for data analysis tasks, which can be used in educational presentations.
+
+### Creating AI Agents for Data Analysis Tasks
+
+To create an AI agent for data analysis tasks, use the following command:
+
+```sh
+surfkit create agent --name data_agent --type pbarker/DataAnalyzer
+```
+
+### Analyzing Datasets
+
+To analyze a dataset using the AI agent, use the following command:
+
+```sh
+surfkit solve "Analyze the dataset for insights" --agent data_agent --device data_device
+```
+
+### Generating Insights
+
+To generate insights from the analyzed data, use the following command:
+
+```sh
+surfkit solve "Generate insights from the analyzed data" --agent data_agent --device data_device
+```
+
+### Visualizing Data
+
+To visualize the data using the AI agent, use the following command:
+
+```sh
+surfkit solve "Visualize the data" --agent data_agent --device data_device
+```
+
+## Demonstrating AI agent creation and management
+
+This section demonstrates how to create, list, and manage AI agents using the `surfkit` CLI commands.
+
+### Creating a New Agent
+
+To create a new agent using the `surfkit` CLI, use the following command:
+
+```sh
+surfkit create agent --name new_agent --type pbarker/SurfPizza
+```
+
+### Listing Running Agents
+
+To list all the running agents, use the following command:
+
+```sh
+surfkit list agents
+```
+
+### Managing Agents
+
+To manage agents, use the following commands:
+
+- To view the logs of an agent:
+
+```sh
+surfkit logs agent new_agent
+```
+
+- To delete an agent:
+
+```sh
+surfkit delete agent new_agent
+```
+
+- To get details about a specific agent:
+
+```sh
+surfkit get agent new_agent
+```
+
+## Teaching task solving with AI agents
+
+This section demonstrates how to use the `solve` function from `surfkit/client.py` to solve tasks using AI agents.
+
+### Creating Tasks
+
+To create a task, use the following command:
+
+```sh
+surfkit create task --description "Search for information on AI in Data Science" --assigned-to new_agent
+```
+
+### Assigning Tasks to Agents
+
+To assign a task to an agent, use the following command:
+
+```sh
+surfkit solve "Search for information on AI in Data Science" --agent new_agent --device data_device
+```
+
+### Explaining Parameters in the `solve` Function
+
+The `solve` function in `surfkit/client.py` has the following parameters:
+
+- `description`: Description of the task.
+- `agent`: Name of the agent to use.
+- `device`: Name of the device to use.
+- `max_steps`: Maximum steps for the task.
+
+### Examples of Tasks Solved by AI Agents
+
+Here are some examples of tasks that can be solved by AI agents:
+
+- Searching for information on AI in Data Science
+- Performing specific actions on devices
