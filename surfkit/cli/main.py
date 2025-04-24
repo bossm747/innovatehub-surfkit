@@ -1748,3 +1748,40 @@ def demo_follow_logs():
     typer.echo("Following logs of agent 'demo_agent' using the surfkit CLI...")
     get_agent_logs(name="demo_agent", runtime="docker", follow=True)
     typer.echo("Logs followed successfully.")
+
+
+@demo_group.command("create-new-agent")
+def demo_create_new_agent():
+    """
+    Demonstrate creating a new agent and running it using the surfkit CLI.
+    """
+    typer.echo("Creating a new agent using the surfkit CLI...")
+    new(
+        template="surf4v",
+    )
+    typer.echo("Building the new agent container...")
+    build(
+        version="latest",
+        agent_file="./agent.yaml",
+        push=True,
+    )
+    typer.echo("Running the new agent...")
+    create_agent(
+        runtime="docker",
+        file="./agent.yaml",
+        name="new_demo_agent",
+        auth_enabled=False,
+        local_keys=False,
+        debug=False,
+    )
+    typer.echo("New agent 'new_demo_agent' created and running successfully.")
+
+
+@demo_group.command("view-manage-tasks")
+def demo_view_manage_tasks():
+    """
+    Demonstrate viewing and managing tasks in the surfkit UI.
+    """
+    typer.echo("Opening the surfkit UI to view and manage tasks...")
+    webbrowser.open("http://localhost:8000")
+    typer.echo("Surfkit UI opened successfully.")

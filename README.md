@@ -323,3 +323,26 @@ To follow the logs of an agent, use the following command:
 ```sh
 surfkit logs agent my_agent --follow
 ```
+
+### Creating a New Agent and Running It
+
+To create a new agent repository, build the agent container, and run the agent to solve a task, use the following commands:
+
+```sh
+surfkit new --template surf4v
+cd my_agent
+surfkit build
+surfkit solve "Search for the most common variety of french duck" --agent my_agent
+```
+
+### Viewing and Managing Tasks in the UI
+
+To view and manage tasks using the `surfkit` UI, follow these steps:
+
+1. Open the `surfkit` UI in your web browser.
+2. Navigate to the "Tasks" section.
+3. Create a new task by clicking the "Create Task" button and filling in the required details.
+4. List all tasks by clicking the "List Tasks" button.
+5. Delete a task by selecting the task and clicking the "Delete Task" button.
+6. View the logs of a task by selecting the task and clicking the "View Logs" button.
+7. Follow the progress of a task by selecting the task and clicking the "Follow Progress" button.
