@@ -295,3 +295,31 @@ function sk() {
 Replacing `/path/to/surfkit/repo` with the absolute path to your local repo.
 
 Then calling `sk` will execute the working code in your repo from any location.
+
+## Demonstrating the `surfkit` CLI for Educational Purposes
+
+This section demonstrates how to use the `surfkit` CLI to create and manage agents and tasks, which can be used in educational presentations.
+
+### Creating an Agent
+
+To create an agent using the `surfkit` CLI, use the following command:
+
+```sh
+surfkit create agent --name my_agent --type pbarker/SurfPizza
+```
+
+### Listing Agents
+
+To list all the agents, use the following command:
+
+```sh
+surfkit list agents
+```
+
+### Following Agent Logs
+
+To follow the logs of an agent, use the following command:
+
+```sh
+surfkit logs agent my_agent --follow
+```
