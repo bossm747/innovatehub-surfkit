@@ -26,6 +26,7 @@ view_group = typer.Typer(help="View resources")
 delete_group = typer.Typer(help="Delete resources")
 logs_group = typer.Typer(help="Resource logs")
 clean_group = typer.Typer(help="Clean resources")
+demo_group = typer.Typer(help="Demonstrate CLI usage")
 
 app.add_typer(create_group, name="create")
 app.add_typer(list_group, name="list")
@@ -33,6 +34,7 @@ app.add_typer(get_group, name="get")
 app.add_typer(view_group, name="view")
 app.add_typer(delete_group, name="delete")
 app.add_typer(logs_group, name="logs")
+app.add_typer(demo_group, name="demo")
 # app.add_typer(clean_group, name="clean")
 
 
@@ -1711,5 +1713,38 @@ def config():
         typer.echo(f"API key: {config.api_key}")
 
 
-if __name__ == "__main__":
-    app()
+@demo_group.command("create-agent")
+def demo_create_agent():
+    """
+    Demonstrate creating an agent using the surfkit CLI.
+    """
+    typer.echo("Creating an agent using the surfkit CLI...")
+    create_agent(
+        runtime="docker",
+        type="pbarker/SurfPizza",
+        name="demo_agent",
+        auth_enabled=False,
+        local_keys=False,
+        debug=False,
+    )
+    typer.echo("Agent 'demo_agent' created successfully.")
+
+
+@demo_group.command("list-agents")
+def demo_list_agents():
+    """
+    Demonstrate listing agents using the surfkit CLI.
+    """
+    typer.echo("Listing agents using the surfkit CLI...")
+    list_agents(runtime="docker")
+    typer.echo("Agents listed successfully.")
+
+
+@demo_group.command("follow-logs")
+def demo_follow_logs():
+    """
+    Demonstrate following agent logs using the surfkit CLI.
+    """
+    typer.echo("Following logs of agent 'demo_agent' using the surfkit CLI...")
+    get_agent_logs(name="demo_agent", runtime="docker", follow=True)
+    typer.echo("Logs followed successfully.")
